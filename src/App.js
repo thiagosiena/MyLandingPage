@@ -1,22 +1,17 @@
-import './App.css';
-import { Component } from 'react';
+import './styles/App.scss';
+import Header from './components/Header';
+import  AppRoutes from './Routes';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: "thiago" };
-  }
-  render() {
-    const { name } = this.state;
-    return (
-      <>
-        <p onClick={() => { this.setState({ name: "Legal" }) }}>
-          Oieee {name} 
-        </p>
 
-      </>
-    );
-  }
+
+function App() {
+  return (
+    <div className='App'>
+       
+      <AppRoutes />
+   
+    </div>
+  )
 }
 
 export default App
