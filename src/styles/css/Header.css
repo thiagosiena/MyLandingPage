@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+.Header {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  background-color: #19C23D;
+  border-bottom-left-radius: 100px;
+}
+
+.Content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-bottom-left-radius: 100px;
+  background-color: #08090A;
+  border-bottom-right-radius: 400px;
+}
+
+.Logo {
+  margin-right: auto;
+  max-width: 100px;
+  max-height: 100px;
+  width: 100%;
+  height: 100%;
+}
+
+.Contact {
+  color: #B4B8AB;
+  text-decoration: none;
+  margin-right: 62px;
+}
+
+.Contact::after {
+  content: "";
+  background-color: #19C23D;
+  width: 0px;
+  height: 3px;
+  max-height: 3px;
+  display: block;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.Contact:hover {
+  color: #19C23D;
+}
+
+.Contact:hover::after {
+  max-width: 66px;
+  width: 100%;
+}
+
+.About {
+  color: #B4B8AB;
+  margin-right: 62px;
+}
+
+.About::after {
+  content: "";
+  background-color: #19C23D;
+  width: 0px;
+  height: 3px;
+  display: block;
+  margin: auto;
+  transition: 0.3s;
+}
+
+.About:hover {
+  color: #19C23D;
+}
+
+.About:hover::after {
+  width: 100%;
+}
+
+.Projects {
+  display: flex;
+  text-decoration: none;
+  color: #B4B8AB;
+  margin-right: 38px;
+}
+.Projects .Arrow {
+  width: 20px;
+  height: 24px;
+  transform: translateX(8px);
+  transition: 0.3s;
+}
+.Projects::after {
+  display: block;
+  content: "";
+  background-color: #19C23D;
+  width: 0;
+  max-width: 58px;
+  height: 3px;
+  margin: auto;
+  transition: 0.3s;
+}
+.Projects:hover, .Projects.aberto {
+  color: #19C23D;
+}
+.Projects:hover .Arrow, .Projects.aberto .Arrow {
+  transform: translateX(8px) rotate(90deg);
+}
+.Projects:hover::after {
+  width: 100%;
+}
+.Projects:active {
+  transform: scale(0.98);
+}
+
+/*# sourceMappingURL=Header.css.map */

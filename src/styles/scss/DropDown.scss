@@ -1,0 +1,34 @@
+@use "./Colors.scss" as *;
+@use "./Fonts.scss" as *;
+
+.DropDown {
+    position: absolute;
+    li{
+        list-style: none;
+    }
+    top: 100px;
+    right: 300px;
+    background-color: $AshGray;
+    max-width: 160px;
+    max-height: 2000px;
+    border-radius: 10px;
+    width: 100%;
+    border: 2px solid $Black;
+}
+.DropDownItem{
+    display: flex;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 155px;
+    margin-top: 5px;
+    border: 2px solid $Black;
+}
+ul{
+   
+    padding: 0;
+}
+img{
+    max-width: 20px;
+}

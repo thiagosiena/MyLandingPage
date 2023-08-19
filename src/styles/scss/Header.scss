@@ -1,0 +1,119 @@
+@use "./Colors.scss" as *;
+@use "./Fonts.scss" as *;
+
+.Header {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    background-color: $Green;
+    border-bottom-left-radius: 100px;
+}
+
+.Content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-bottom-left-radius: 100px;
+    background-color: $Black;
+    border-bottom-right-radius: 400px;
+}
+
+.Logo {
+    margin-right: auto;
+    max-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    height: 100%;
+}
+.Contact {
+    color: $AshGray;
+    text-decoration: none;
+    margin-right: 62px;
+}
+
+.Contact::after {
+    content: "";
+    background-color: $Green;
+    width: 0px;
+
+    height: 3px;
+    max-height: 3px;
+    display: block;
+    margin: auto;
+    transition: 0.3s;
+}
+
+.Contact:hover {
+    color: $Green;
+}
+.Contact:hover::after {
+    max-width: 66px;
+    width: 100%;
+}
+
+.About {
+    color: $AshGray;
+    margin-right: 62px;
+}
+.About::after {
+    content: "";
+    background-color: $Green;
+    width: 0px;
+    height: 3px;
+    display: block;
+    margin: auto;
+    transition: 0.3s;
+}
+.About:hover {
+    color: $Green;
+}
+.About:hover::after {
+    width: 100%;
+}
+
+.Projects {
+    display: flex;
+    text-decoration: none;
+    color: $AshGray;
+    margin-right: 38px;
+
+    .Arrow {
+        width: 20px;
+        height: 24px;
+        transform: translateX(8px);
+        transition: 0.3s;
+    }
+
+    &::after {
+        display: block;
+
+        content: "";
+        background-color: $Green;
+        width: 0;
+        max-width: 58px;
+        height: 3px;
+        margin: auto;
+        transition: 0.3s;
+    }
+
+    &:hover,
+    &.aberto {
+        .Arrow {
+            transform: translateX(8px) rotate(90deg);
+        }
+
+        color: $Green;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
