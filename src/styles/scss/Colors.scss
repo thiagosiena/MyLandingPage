@@ -3,3 +3,14 @@ $LightBlack: #222823;
 $Gray: #575A5E;
 $AshGray: #B4B8AB;
 $Green: #19C23D;
+
+
+@mixin Full-Screen($Color: transparent) {
+    position: fixed;
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 0;
+    left: 0;
+    background-color: $Color;  
+}
+

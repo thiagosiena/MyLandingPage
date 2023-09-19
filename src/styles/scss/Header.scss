@@ -14,9 +14,8 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    height: 80px;
     padding-bottom: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
     border-bottom-left-radius: 100px;
     background-color: $Black;
     border-bottom-right-radius: 400px;
@@ -24,8 +23,9 @@
 
 .Logo {
     margin-right: auto;
+    padding-left: 50px;
     max-width: 100px;
-    max-height: 100px;
+    max-height: 80px;
     width: 100%;
     height: 100%;
 }
@@ -75,6 +75,37 @@
     width: 100%;
 }
 
+.DropDownWrapper{
+   @include Full-Screen();
+    .Overlay{
+        
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 90px;
+        width: 100vw !important;
+        height: 100vh !important;
+        background-color: transparent;
+    }
+}
+
+.NavIcon{
+    transition: 1s;
+    margin: 25px;
+    padding: 0px;
+    margin-right: auto;
+    color: azure;
+    display: flex;
+    justify-content: flex-end;
+
+    &.active{
+        transform: rotate(90deg);
+       
+        
+    }
+
+}
+
+
 .Projects {
     display: flex;
     text-decoration: none;
@@ -88,32 +119,20 @@
         transition: 0.3s;
     }
 
-    &::after {
-        display: block;
 
-        content: "";
-        background-color: $Green;
-        width: 0;
-        max-width: 58px;
-        height: 3px;
-        margin: auto;
-        transition: 0.3s;
-    }
 
     &:hover,
-    &.aberto {
+    &.active {
         .Arrow {
             transform: translateX(8px) rotate(90deg);
         }
-
         color: $Green;
     }
 
-    &:hover::after {
-        width: 100%;
-    }
 
-    &:active {
-        transform: scale(0.98);
-    }
+ &.active{
+     transform: scale(0.98);
+ }  
+
 }
+

@@ -12,9 +12,8 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  height: 80px;
   padding-bottom: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
   border-bottom-left-radius: 100px;
   background-color: #08090A;
   border-bottom-right-radius: 400px;
@@ -22,8 +21,9 @@
 
 .Logo {
   margin-right: auto;
+  padding-left: 50px;
   max-width: 100px;
-  max-height: 100px;
+  max-height: 80px;
   width: 100%;
   height: 100%;
 }
@@ -77,6 +77,36 @@
   width: 100%;
 }
 
+.DropDownWrapper {
+  position: fixed;
+  width: 100vw !important;
+  height: 100vh !important;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+.DropDownWrapper .Overlay {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 90px;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: transparent;
+}
+
+.NavIcon {
+  transition: 1s;
+  margin: 25px;
+  padding: 0px;
+  margin-right: auto;
+  color: azure;
+  display: flex;
+  justify-content: flex-end;
+}
+.NavIcon.active {
+  transform: rotate(90deg);
+}
+
 .Projects {
   display: flex;
   text-decoration: none;
@@ -89,26 +119,13 @@
   transform: translateX(8px);
   transition: 0.3s;
 }
-.Projects::after {
-  display: block;
-  content: "";
-  background-color: #19C23D;
-  width: 0;
-  max-width: 58px;
-  height: 3px;
-  margin: auto;
-  transition: 0.3s;
-}
-.Projects:hover, .Projects.aberto {
+.Projects:hover, .Projects.active {
   color: #19C23D;
 }
-.Projects:hover .Arrow, .Projects.aberto .Arrow {
+.Projects:hover .Arrow, .Projects.active .Arrow {
   transform: translateX(8px) rotate(90deg);
 }
-.Projects:hover::after {
-  width: 100%;
-}
-.Projects:active {
+.Projects.active {
   transform: scale(0.98);
 }
 

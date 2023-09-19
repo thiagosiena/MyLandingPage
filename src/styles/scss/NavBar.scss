@@ -1,0 +1,43 @@
+@use "./Colors.scss" as *;
+
+.NavItens{
+    display: flex;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 155px;
+    margin-top: 5px;
+    border: 2px solid $Black;
+    
+
+}
+
+.NavBar{
+
+    
+    ul{
+        list-style: none;
+    }
+    width: 100px;
+    height: -webkit-fill-available;
+    position: absolute;
+    left: -1px;
+    top: 70px;
+    background-color: aqua;
+    animation: ShowNavBar 1s ease;
+
+}
+
+@keyframes ShowNavBar {
+
+    from{
+       
+        width: 0%;
+    }
+    to{
+        
+        width: 100px;
+
+    }
+}

@@ -9,10 +9,10 @@ const AppRoutes = () =>{
     return(
         <Router>
             <Routes>
-                <Route exact path="/" element={<HomePage/>}></Route>
-                <Route path="/Contact" element={<Contact/>}></Route>
-                <Route path="/Calculator" element={<Calculator/>}></Route>
-                <Route path="*" element={<Page404/>}></Route>
+                <Route exact path="/" element={<HomePage/>}/>
+                <Route path="/Contact" element={<Contact/>}/>
+                <Route path="/Calculator" element={<Calculator/>}/>
+                <Route path="*" element={<Page404/>}/>
             </Routes>
         </Router>
     )
