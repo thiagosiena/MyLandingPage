@@ -15,13 +15,28 @@ const Header = () => {
     setWindowWidth(window.innerWidth);
   };
 
+//Scroll Header and Dropdown animation
+
+  const scrollheader = () =>{
+    const hd = document.querySelector(".Header");
+    
+    if(window.scrollY >= 60){
+      hd.classList.add("Header-scrolled");
+    }
+    else{
+      hd.classList.remove("Header-scrolled");
+    }
+  }
+
   useEffect(() => {
+    window.addEventListener("scroll", scrollheader);
     window.addEventListener("resize", updateWindowDimensions);
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
+      window.removeEventListener("scroll", scrollheader);
     };
   }, []);
-
+  
   // DropDown Works
   const [OpenDropDown, SetOpenDropDown] = useState(false);
   const handleDropDownClick = () => {
@@ -33,12 +48,10 @@ const Header = () => {
   const Overlay = useRef(null);
 
 //NavBar Works
-const  [OpenNavBar, SetOpenNavBar] = useState(false)
+const  [OpenNavBar, SetOpenNavBar] = useState(false);
 const handleNavClick = () =>{
-  SetOpenNavBar(!OpenNavBar)
+  SetOpenNavBar(!OpenNavBar);
 }
-
-
 
   return (
     <>

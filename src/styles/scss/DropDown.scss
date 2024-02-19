@@ -2,35 +2,39 @@
 @use "./Fonts.scss" as *;
 
 .DropDown {
-    margin-right: 250px;
+    margin-right: 395px;
     li{
         list-style: none;
     }
-    background-color:aqua;
+    background-color: transparent;
     max-width: 100%;
     max-height: 100%;
-    padding: 15px 0;
-    border-radius: 10px;
-    width: 160px;
+    padding: 10px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 180px;
     height: fit-content;
-    border: 2px solid $Black;
+    
+}
+.DropDown-scrolled{
+    
+    background-color: $Black;
+
 }
 .DropDownItem{
     display: flex;
-    border-radius: 30px;
     align-items: center;
     justify-content: center;
-    height: 30px;
-    width: 155px;
+    height: 50px;
+    width: max;
     margin-top: 5px;
-    border: 2px solid $Black;
+    border: 2px solid $Green;
 }
 ul{
     padding: 0;
 }
 
 .Icons{
-
     max-width: 20px;
 }
 .Button{
@@ -40,4 +44,5 @@ ul{
 }
 .Text{
     font-size: 20px;
+    color: $Green;
 }

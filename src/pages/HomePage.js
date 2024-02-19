@@ -1,17 +1,18 @@
 
-import Header from "../components/Header"
-
+import Header from "../components/Header";
+import "../styles/css/HomePage.css";
 
 
 const HomePage = () => {
 
-   
+
 
     return (
         <>
-            <Header/>
-            <h1>Home page</h1>
-       
+            <Header />
+            <h1>asdhuasd</h1>
+
+
         </>
 
 
