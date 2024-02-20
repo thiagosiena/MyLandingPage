@@ -2,19 +2,18 @@
 @use "./Fonts.scss" as *;
 
 .DropDown {
-    margin-right: 395px;
+    margin-right: 485px;
     li{
         list-style: none;
     }
     background-color: transparent;
     max-width: 100%;
     max-height: 100%;
-    padding: 10px 0;
+    padding: 10px 6px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     width: 180px;
     height: fit-content;
-    
 }
 .DropDown-scrolled{
     

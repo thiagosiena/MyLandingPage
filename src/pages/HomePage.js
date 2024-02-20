@@ -1,18 +1,27 @@
 
 import Header from "../components/Header";
 import "../styles/css/HomePage.css";
+import { Cursor ,useTypewriter } from 'react-simple-typewriter'
 
 
 const HomePage = () => {
 
-
+    const [content] = useTypewriter({
+        words: ["Thiago Siena", "a Developer", ],
+        loop: {},
+    });
 
     return (
         <>
-            <Header />
-            <h1>asdhuasd</h1>
-
-
+            <Header/>
+            
+            <div className="Title">
+                <h1>
+                    Hi, i am<span className="TypeWriter"> {content}</span>
+                    <span className="Cursor"><Cursor/></span>
+                
+                </h1>
+            </div>
         </>
 
 

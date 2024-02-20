@@ -1,9 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
 body {
+  background: rgb(0, 129, 27);
+  background: linear-gradient(190deg, rgb(0, 129, 27) 0%, rgb(0, 0, 0) 16%, rgb(0, 129, 27) 64%);
   margin: 0;
   padding: 0;
   border: 0;
   height: 3000px;
   overflow-x: hidden;
+}
+
+.Title {
+  color: #B4B8AB;
+  font-size: 30px;
+  margin-top: 210px;
+  margin-left: 15%;
+}
+
+.Cursor {
+  color: rgb(0, 255, 0);
+}
+
+.TypeWriter {
+  color: #19C23D;
 }
 
 /*# sourceMappingURL=HomePage.css.map */

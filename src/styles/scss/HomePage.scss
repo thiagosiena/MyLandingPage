@@ -1,7 +1,30 @@
+@use "./Colors.scss" as *;
+@use "./Fonts.scss" as *;
+
+
+
 body {
+    background: rgb(0,129,27);
+background: linear-gradient(190deg, rgba(0,129,27,1) 0%, rgba(0,0,0,1) 16%, rgba(0,129,27,1) 64%);
     margin: 0;
     padding: 0;
     border: 0;
     height: 3000px;
     overflow-x: hidden;
+}
+
+.Title {
+    color: $AshGray;
+    font-size: 30px;
+    margin-top: 210px;
+    margin-left: 15%;
+}
+
+.Cursor {
+    color: rgb(0, 255, 0);
+}
+
+.TypeWriter {
+
+    color: $Green;
 }

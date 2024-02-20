@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import "../styles/css/Header.css";
 import { Link } from "react-router-dom";
 import { DropDownItem, DropDown } from "./DropDown";
-import Logo from "../imgs/App Logo Inspiraton 39.svg";
+import Logo from "../imgs/TS-removebg-preview (1).png";
 import Calculator from "../imgs/Icons/icons8-calculator-26.svg";
 import Arrow from "../imgs/Icons/icons8-arrow-50.svg";
 import { NavBar , NavItem } from "./NavBar";
@@ -66,7 +66,6 @@ const handleNavClick = () =>{
                 onClick={handleDropDownClick}
               >
                 Projects
-
                 <img className="Arrow" src={Arrow} alt="arrow" />
 
               </Link>
