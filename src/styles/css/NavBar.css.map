@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../scss/NavBar.scss"],"names":[],"mappings":"AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAKJ;EAKI;EACA;EACA;EACA;EACA;EACA;EACA;;AATA;EACI;;;AAYR;EAEI;IAEI;;EAEJ;IAEI","file":"NavBar.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/NavBar.scss","../scss/Colors.scss"],"names":[],"mappings":"AAEA;EACI;EACA,OCDM;EDEN;EACA;EACA;EACA;EACA;EACA;EACA;;;AAKJ;EACI;EACA;EAIA;EACA;EACA;EACA;EACA;EACA;EACA;;AATA;EACI;;;AAYR;EACI;;;AAEJ;EACI;EACA;EACA,OClCI;;;ADoCR;EACI;EACA,OCtCI;EDuCJ;;;AAGJ;EAEI;IAEI;;EAEJ;IAEI","file":"NavBar.css"}

@@ -5,28 +5,31 @@ import { DropDownItem, DropDown } from "./DropDown";
 import Logo from "../imgs/TS-removebg-preview (1).png";
 import Calculator from "../imgs/Icons/icons8-calculator-26.svg";
 import Arrow from "../imgs/Icons/icons8-arrow-50.svg";
-import { NavBar , NavItem } from "./NavBar";
-import {HiMiniBars3} from 'react-icons/hi2';
+import { NavBar, NavItem } from "./NavBar";
+import { HiMiniBars3 } from 'react-icons/hi2';
 
 
 const Header = () => {
+
+  //making it responsive
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const updateWindowDimensions = () => {
     setWindowWidth(window.innerWidth);
   };
 
-//Scroll Header and Dropdown animation
+  //Scroll Header animation
 
-  const scrollheader = () =>{
+  const scrollheader = () => {
     const hd = document.querySelector(".Header");
-    
-    if(window.scrollY >= 60){
+
+    if (window.scrollY >= 60) {
       hd.classList.add("Header-scrolled");
     }
-    else{
+    else {
       hd.classList.remove("Header-scrolled");
     }
   }
+
 
   useEffect(() => {
     window.addEventListener("scroll", scrollheader);
@@ -34,9 +37,10 @@ const Header = () => {
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
       window.removeEventListener("scroll", scrollheader);
+
     };
   }, []);
-  
+
   // DropDown Works
   const [OpenDropDown, SetOpenDropDown] = useState(false);
   const handleDropDownClick = () => {
@@ -44,20 +48,29 @@ const Header = () => {
   };
   const handleOverlay = (e) => {
     if (e.target === Overlay.current) handleDropDownClick();
+
   };
   const Overlay = useRef(null);
 
-//NavBar Works
-const  [OpenNavBar, SetOpenNavBar] = useState(false);
-const handleNavClick = () =>{
-  SetOpenNavBar(!OpenNavBar);
-}
+
+
+  //NavBar Works
+  const [OpenNavBar, SetOpenNavBar] = useState(false);
+  const handleNavClick = () => {
+    SetOpenNavBar(!OpenNavBar);
+  }
+  const handleOverlay2 = (e) => {
+    if (e.target === Overlay2.current) handleNavClick();
+
+  };
+  const Overlay2 = useRef(null);
+
 
   return (
     <>
       <div className="Header">
         <div className="Content">
-          {windowWidth > 640 ? (
+          {windowWidth > 985 ? (
             <>
               <img className="Logo" src={Logo} alt="logo" />
               <Link
@@ -72,11 +85,13 @@ const handleNavClick = () =>{
 
               {OpenDropDown ? (
                 <>
-                  <div className="DropDownWrapper">
+                  <div className="OverlayWrapper">
+
                     <div
                       className="Overlay"
                       ref={Overlay}
                       onClick={handleOverlay}
+
                     >
                       <DropDown>
                         <DropDownItem
@@ -98,14 +113,33 @@ const handleNavClick = () =>{
             </>
           ) : (
             <>
-              <HiMiniBars3  className={`NavIcon ${OpenNavBar ? "active" : ""}`} size={50} onClick={handleNavClick}/>
-              {OpenNavBar ? (<NavBar>
-                <NavItem text='test' />
-                <NavItem text='test'  />
-                <NavItem text='test'/>
-              </NavBar>): null }
-                
-            
+
+              <HiMiniBars3 className={`NavIcon ${OpenNavBar ? "active" : ""}`} size={40} onClick={handleNavClick} />
+              <img className="Logo" src={Logo} alt="logo" />
+              {OpenNavBar ? (<>
+
+
+                <div className="OverlayWrapper"
+                  ref={Overlay2}
+                  onClick={handleOverlay2}>
+                  <div
+                    className="Overlay2">
+                    <NavBar>
+                      <NavItem text='Contact' url="/Contact" >
+
+                      </NavItem>
+                      <NavItem text='test' />
+                      <NavItem text='test' />
+                    </NavBar>
+
+                  </div>
+                </div>
+
+
+              </>
+              ) : null}
+
+
             </>
           )}
         </div>

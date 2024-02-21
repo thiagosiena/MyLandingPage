@@ -84,7 +84,7 @@
   width: 100%;
 }
 
-.DropDownWrapper {
+.OverlayWrapper {
   position: fixed;
   width: 100vw !important;
   height: 100vh !important;
@@ -92,7 +92,7 @@
   left: 0;
   background-color: transparent;
 }
-.DropDownWrapper .Overlay {
+.OverlayWrapper .Overlay {
   display: flex;
   justify-content: flex-end;
   padding-top: 90px;
@@ -102,13 +102,14 @@
 }
 
 .NavIcon {
-  transition: 1s;
+  transition: 0.5s;
   margin: 25px;
   padding: 0px;
   margin-right: auto;
   color: azure;
   display: flex;
   justify-content: flex-end;
+  z-index: 101;
 }
 .NavIcon.active {
   transform: rotate(90deg);

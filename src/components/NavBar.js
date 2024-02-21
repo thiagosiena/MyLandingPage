@@ -14,22 +14,26 @@ function NavBar({ children }) {
 
 
 function NavItem(props) {
+    
 
+    
     if (props.url == null) {
         return (
             <div className="NavItem">
-                <img src={props.icon} alt={props.alt} />
-                <h4>{props.text}</h4>
+                <img className="Icons" src={props.icon} alt={props.alt} />
+                <h4 className="Text">{props.text}</h4>
             </div >
         )
     }
-
-    return (
-        <div className="NavItem">
-            <img src={props.icon} alt={props.alt} />
-            <Link to={props.url}>{props.text}</Link>
-        </div>
-    )
+    else{
+        return (
+            <div className="NavItem">
+                <img className="Icons" src={props.icon} alt={props.alt} />
+                <Link className="Button" to={props.url}>{props.text}</Link>
+            </div>
+        )
+    }
+    
 }
 
 export { NavBar, NavItem }

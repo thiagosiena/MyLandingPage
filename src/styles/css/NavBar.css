@@ -1,25 +1,44 @@
-.NavItens {
+.NavItem {
   display: flex;
-  border-radius: 30px;
+  color: #B4B8AB;
+  border: 2px solid blueviolet;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  width: 155px;
+  margin-top: 20px;
+  height: 50px;
+  width: max;
   margin-top: 5px;
-  border: 2px solid #08090A;
 }
 
 .NavBar {
-  width: 100px;
-  height: -webkit-fill-available;
+  padding-top: 90px;
+  z-index: -1;
+  width: 150px;
+  height: 200vh;
   position: absolute;
   left: -1px;
-  top: 70px;
-  background-color: aqua;
+  top: 0px;
+  background-color: black;
   animation: ShowNavBar 1s ease;
 }
 .NavBar ul {
   list-style: none;
+}
+
+.Icons {
+  max-width: 20px;
+}
+
+.Button {
+  text-decoration: none;
+  font-size: 20px;
+  color: #19C23D;
+}
+
+.Text {
+  font-size: 20px;
+  color: #19C23D;
+  text-decoration: none;
 }
 
 @keyframes ShowNavBar {
@@ -27,7 +46,7 @@
     width: 0%;
   }
   to {
-    width: 100px;
+    width: 150px;
   }
 }
 
