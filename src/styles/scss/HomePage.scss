@@ -3,21 +3,40 @@
 
 
 
-body {
-    background: rgb(0,129,27);
-background: linear-gradient(190deg, rgba(0,129,27,1) 0%, rgba(0,0,0,1) 16%, rgba(0,129,27,1) 64%);
+.First-section {
+    background: rgb(0, 98, 21);
+    background: linear-gradient(190deg, rgba(0, 98, 21, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 66%, rgba(0, 98, 21, 1) 100%);
     margin: 0;
     padding: 0;
     border: 0;
-    height: 3000px;
+    height: 100vh;
     overflow-x: hidden;
+
 }
 
+.content {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+
+}
+
+.left {
+    flex: 3;
+}
+
+.right {
+    position: relative;
+    flex: 3;
+}
+
+
 .Title {
+
     color: $AshGray;
-    font-size: 30px;
-    margin-top: 210px;
-    margin-left: 15%;
+    font-size: 36px;
+    margin-top: 300px;
+    margin-left: 150px;
 }
 
 .Cursor {
@@ -28,3 +47,38 @@ background: linear-gradient(190deg, rgba(0,129,27,1) 0%, rgba(0,0,0,1) 16%, rgba
 
     color: $Green;
 }
+
+.pc-image {
+
+    width: 600px;
+    height: 400px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: pcanimation 2s infinite ease alternate;
+}
+
+@keyframes pcanimation {
+    from{
+       
+        
+    }
+   
+    to {
+        transform: translateY(20px);
+        
+        
+    }
+}
+    .Second-section {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        height: 100vh;
+        overflow-x: hidden;
+
+    }
