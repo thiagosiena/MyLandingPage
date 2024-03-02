@@ -106,7 +106,7 @@ const Header = () => {
                   </div>
                 </>
               ) : null}
-              <div className="About">About</div>
+              <div className="About" ><a href="#segunda">About</a></div>
               <Link to="/Contact" className="Contact">
                 Contact
               </Link>
@@ -122,8 +122,7 @@ const Header = () => {
                 <div className="OverlayWrapper"
                   ref={Overlay2}
                   onClick={handleOverlay2}>
-                  <div
-                    className="Overlay2">
+                  <div className="Overlay2">
                     <NavBar>
                       <NavItem text='Contact' url="/Contact" >
 

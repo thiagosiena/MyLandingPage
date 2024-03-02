@@ -1,42 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
 .First-section {
-  background: rgb(0, 98, 21);
-  background: linear-gradient(190deg, rgb(0, 98, 21) 0%, rgb(0, 0, 0) 35%, rgb(0, 0, 0) 66%, rgb(0, 98, 21) 100%);
-  margin: 0;
+  background-color: #1d1d1d;
   padding: 0;
   border: 0;
-  height: 100vh;
+  height: 110vh;
   overflow-x: hidden;
 }
 
 .content {
+  margin-right: 200px;
+  margin-left: 200px;
   display: flex;
   justify-content: space-between;
   height: 100vh;
 }
 
 .left {
-  flex: 3;
+  flex: 4;
 }
 
 .right {
+  margin-top: 60px;
   position: relative;
   flex: 3;
 }
 
 .Title {
   color: #B4B8AB;
-  font-size: 36px;
+  font-size: 30px;
   margin-top: 300px;
-  margin-left: 150px;
+  margin-left: 155px;
 }
 
 .Cursor {
-  color: rgb(0, 255, 0);
+  color: #19C23D;
 }
 
 .TypeWriter {
   color: #19C23D;
+}
+
+.Object-3d {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: center;
 }
 
 .pc-image {
@@ -58,6 +65,7 @@
   }
 }
 .Second-section {
+  background-color: #303030;
   margin: 0;
   padding: 0;
   border: 0;

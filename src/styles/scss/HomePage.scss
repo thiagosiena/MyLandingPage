@@ -4,17 +4,20 @@
 
 
 .First-section {
-    background: rgb(0, 98, 21);
-    background: linear-gradient(190deg, rgba(0, 98, 21, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 66%, rgba(0, 98, 21, 1) 100%);
-    margin: 0;
+    // background: rgb(0, 98, 21);
+    // background: linear-gradient(190deg, rgba(0, 98, 21, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 66%, rgba(0, 98, 21, 1) 100%);
+    background-color: #1d1d1d;
     padding: 0;
     border: 0;
-    height: 100vh;
+    height: 110vh;
     overflow-x: hidden;
 
 }
 
 .content {
+   
+    margin-right: 200px;
+    margin-left: 200px;
     display: flex;
     justify-content: space-between;
     height: 100vh;
@@ -22,10 +25,11 @@
 }
 
 .left {
-    flex: 3;
+    flex: 4;
 }
 
 .right {
+    margin-top: 60px;
     position: relative;
     flex: 3;
 }
@@ -34,22 +38,27 @@
 .Title {
 
     color: $AshGray;
-    font-size: 36px;
+    font-size: 30px;
     margin-top: 300px;
-    margin-left: 150px;
+    margin-left: 155px;
 }
 
 .Cursor {
-    color: rgb(0, 255, 0);
-}
-
-.TypeWriter {
-
     color: $Green;
 }
 
-.pc-image {
+.TypeWriter {
+    color: $Green;
+}
+.Object-3d{
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: center;
+    
+}
 
+.pc-image {
+    
     width: 600px;
     height: 400px;
     object-fit: contain;
@@ -75,6 +84,7 @@
     }
 }
     .Second-section {
+        background-color: #303030;
         margin: 0;
         padding: 0;
         border: 0;
@@ -82,3 +92,6 @@
         overflow-x: hidden;
 
     }
+
+
+    

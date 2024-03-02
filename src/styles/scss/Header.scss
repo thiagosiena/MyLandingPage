@@ -18,7 +18,7 @@
 }
 
 .Header-scrolled {
-    background-color: $Black;
+    background-color: #101010;
 }
 
 .Content {
@@ -27,7 +27,9 @@
     justify-content: space-around;
     align-items: center;
     height: 80px;
-    padding-bottom: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 20px;
     border-bottom-left-radius: 100px;
     background-color: transparent;
     border-bottom-right-radius: 400px;
@@ -35,16 +37,14 @@
 
 .Logo {
     margin-right: auto;
-    margin-left: 50px;
-    padding-top: 10px;
-
+    
 }
 
 .Contact {
     font-size: 30px;
     color: $AshGray;
     text-decoration: none;
-    margin-right: 180px;
+    
 }
 
 .Contact::after {
@@ -69,9 +69,16 @@
 }
 
 .About {
-    font-size: 30px;
-    color: $AshGray;
+  
     margin-right: 62px;
+    a {
+        text-decoration: none;
+        font-size: 30px;
+        color: $AshGray;
+    
+    }
+   
+
 }
 
 .About::after {
@@ -105,7 +112,7 @@
         height: 100vh !important;
         background-color: transparent;
     }
-    
+
 }
 
 .NavIcon {

@@ -2,7 +2,7 @@
 @use "./Fonts.scss" as *;
 
 .DropDown {
-    margin-right: 485px;
+    margin-right: 520px;
     li{
         list-style: none;
     }
@@ -17,7 +17,7 @@
 }
 .DropDown-scrolled{
     
-    background-color: $Black;
+    background-color: #101010;
 
 }
 .DropDownItem{

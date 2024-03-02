@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
 .DropDown {
-  margin-right: 485px;
+  margin-right: 520px;
   background-color: transparent;
   max-width: 100%;
   max-height: 100%;
@@ -15,7 +15,7 @@
 }
 
 .DropDown-scrolled {
-  background-color: #08090A;
+  background-color: #101010;
 }
 
 .DropDownItem {
