@@ -72,7 +72,7 @@ const Header = () => {
         <div className="Content">
           {windowWidth > 985 ? (
             <>
-              <img className="Logo" src={Logo} alt="logo" />
+              <a className="Logo" href="/"><img src={Logo} alt="logo"/></a>
               <Link
                 to="#"
                 className={`Projects ${OpenDropDown ? "active" : ""}`}
@@ -107,7 +107,7 @@ const Header = () => {
                   </div>
                 </>
               ) : null}
-              <div className="About" ><a href="#segunda">About</a></div>
+              <div className="About" ><a href="#about">About</a></div>
               <Link to="/Contact" className="Contact">
                 Contact
               </Link>

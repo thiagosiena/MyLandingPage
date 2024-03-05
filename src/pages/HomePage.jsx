@@ -48,7 +48,7 @@ const HomePage = () => {
 
 
             </div>
-            <div className="Second-section" id="segunda">
+            <div className="Second-section" id="about">
                 <h1>hi</h1>
             </div>
 

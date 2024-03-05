@@ -3,7 +3,7 @@
   background-color: #1d1d1d;
   padding: 0;
   border: 0;
-  height: 110vh;
+  height: calc(100vh + 120px);
   overflow-x: hidden;
 }
 
@@ -33,7 +33,7 @@
   color: #B4B8AB;
   font-size: 30px;
   padding-top: 300px;
-  padding-left: 160px;
+  padding-left: 1;
 }
 
 .Cursor {
@@ -73,7 +73,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  height: 100vh;
+  height: calc(100vh + 120px);
   overflow-x: hidden;
 }
 

@@ -36,6 +36,7 @@
 }
 
 .Contact {
+  padding-left: 60px;
   font-size: 30px;
   color: #B4B8AB;
   text-decoration: none;
@@ -61,7 +62,7 @@
 }
 
 .About {
-  margin-right: 62px;
+  padding-left: 30px;
 }
 .About a {
   text-decoration: none;
@@ -70,6 +71,7 @@
 }
 
 .About::after {
+  font-size: 30px;
   content: "";
   background-color: #19C23D;
   width: 0px;
@@ -120,24 +122,28 @@
 
 .Projects {
   font-size: 30px;
-  display: flex;
+  padding-right: 30px;
+  position: relative;
+  justify-content: center;
   text-decoration: none;
   color: #B4B8AB;
-  margin-right: 38px;
 }
 .Projects .Arrow {
-  margin-top: 6px;
-  display: flex;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 30px;
   height: 25px;
-  transform: translateX(8px);
+  transform: translateX(6px);
   transition: 0.3s;
 }
 .Projects:hover, .Projects.active {
   color: #19C23D;
 }
 .Projects:hover .Arrow, .Projects.active .Arrow {
-  transform: translateX(8px) rotate(90deg);
+  transform: translateX(6px) rotate(90deg);
 }
 .Projects.active {
   transform: scale(0.98);

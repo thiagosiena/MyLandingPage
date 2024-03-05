@@ -22,6 +22,7 @@
 
 .Content {
     display: flex;
+
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -36,14 +37,15 @@
 
 .Logo {
     margin-right: auto;
-    
+
 }
 
 .Contact {
+    padding-left: 60px;
     font-size: 30px;
     color: $AshGray;
     text-decoration: none;
-    
+
 }
 
 .Contact::after {
@@ -68,19 +70,20 @@
 }
 
 .About {
-  
-    margin-right: 62px;
+
+    padding-left: 30px;
     a {
         text-decoration: none;
         font-size: 30px;
         color: $AshGray;
-    
+
     }
-   
+
 
 }
 
 .About::after {
+    font-size: 30px;
     content: "";
     background-color: $Green;
     width: 0px;
@@ -107,7 +110,7 @@
         display: flex;
         justify-content: flex-end;
         padding-top: 90px;
-        
+
         width: 100vw !important;
         height: 100vh !important;
         background-color: transparent;
@@ -137,25 +140,34 @@
 
 
 .Projects {
+   
     font-size: 30px;
-    display: flex;
+    padding-right: 30px;
+    
+    position: relative;
+    justify-content: center;
     text-decoration: none;
     color: $AshGray;
-    margin-right: 38px;
+
 
     .Arrow {
-        margin-top: 6px;
-        display: flex;
+        
+
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0; 
+        right: 0;
         width: 30px;
         height: 25px;
-        transform: translateX(8px);
+        transform: translateX(6px);
         transition: 0.3s;
     }
 
     &:hover,
     &.active {
         .Arrow {
-            transform: translateX(8px) rotate(90deg);
+            transform: translateX(6px) rotate(90deg);
         }
 
         color: $Green;
