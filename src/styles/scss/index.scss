@@ -1,16 +1,21 @@
 @use "./Fonts.scss" as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+
   margin: 0;
   padding: 0;
   border: 0;
   font-family: 'Sora';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+    monospace;
 }
