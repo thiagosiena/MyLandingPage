@@ -11,7 +11,7 @@ import React from "react";
 const HomePage = () => {
 
     const [content] = useTypewriter({
-        words: ["Thiago Siena", "", "a Developer", ""],
+        words: ["Thiago ", "", "a Developer", ""],
         loop: {},
     });
 
