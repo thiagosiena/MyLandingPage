@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
 .Header {
   width: 100%;
@@ -20,23 +21,25 @@
 .Content {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  position: relative;
   align-items: center;
   height: 80px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 8%;
+  margin-right: 8%;
   padding: 20px;
   border-bottom-left-radius: 100px;
   background-color: transparent;
   border-bottom-right-radius: 400px;
 }
 
-.Logo {
-  margin-right: auto;
+.Buttons-Container {
+  display: flex;
+  flex-direction: row;
+  gap: 90px;
 }
 
 .Contact {
-  padding-left: 60px;
   font-size: 30px;
   color: #B4B8AB;
   text-decoration: none;
@@ -61,9 +64,6 @@
   width: 100%;
 }
 
-.About {
-  padding-left: 30px;
-}
 .About a {
   text-decoration: none;
   font-size: 30px;
@@ -81,12 +81,25 @@
   transition: 0.3s;
 }
 
-.About:hover {
+.About:hover a {
   color: #19C23D;
 }
 
 .About:hover::after {
   width: 100%;
+}
+
+.DropDown, .DropDown-scrolled {
+  position: absolute;
+  top: 100%; /* Posiciona o dropdown logo abaixo do item "Projects" */
+  background-color: #101010; /* Cor de fundo do dropdown */
+  width: fit-content;
+  height: fit-content;
+  transition: 0.3s ease;
+  padding: 10px 6px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 100; /* Garante que o dropdown está acima do overlay */
 }
 
 .OverlayWrapper {
@@ -104,6 +117,8 @@
   width: 100vw !important;
   height: 100vh !important;
   background-color: transparent;
+  position: fixed;
+  z-index: 99;
 }
 
 .NavIcon {
@@ -120,33 +135,48 @@
   transform: rotate(90deg);
 }
 
-.Projects {
-  font-size: 30px;
-  padding-right: 30px;
-  position: relative;
+.Project {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  text-decoration: none;
-  color: #B4B8AB;
+  width: fit-content;
+  cursor: pointer;
 }
-.Projects .Arrow {
+.Project .Arrow {
   margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
   width: 30px;
   height: 25px;
   transform: translateX(6px);
   transition: 0.3s;
 }
-.Projects:hover, .Projects.active {
-  color: #19C23D;
+.Project:hover .Projects::after {
+  width: 100%;
 }
-.Projects:hover .Arrow, .Projects.active .Arrow {
+.Project:hover .Projects, .Project.active .Projects {
+  color: #19C23D;
+  transform: scale(0.98);
+}
+.Project:hover .Arrow, .Project.active .Arrow {
   transform: translateX(6px) rotate(90deg);
 }
-.Projects.active {
-  transform: scale(0.98);
+
+.Projects {
+  font-size: 30px;
+  position: relative;
+  justify-content: center;
+  text-decoration: none;
+  color: #B4B8AB;
+}
+
+.Projects::after {
+  font-size: 30px;
+  content: "";
+  background-color: #19C23D;
+  width: 0px;
+  height: 3px;
+  display: block;
+  margin: auto;
+  transition: 0.3s;
 }
 
 /*# sourceMappingURL=Header.css.map */

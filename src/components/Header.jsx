@@ -72,49 +72,62 @@ const Header = () => {
         <div className="Content">
           {windowWidth > 985 ? (
             <>
-              <a className="Logo" href="/"><img src={Logo} alt="logo"/></a>
-              <Link
-                to="#"
-                className={`Projects ${OpenDropDown ? "active" : ""}`}
-                onClick={handleDropDownClick}
-              >
-                Projects
-                <img className="Arrow" src={Arrow} alt="arrow" />
+              <div className="Logo-Container">
+                <a className="Logo" href="/"><img src={Logo} alt="logo" /></a>
+              </div>
 
-              </Link>
+              <div className="Buttons-Container">
+                <div className={`Project ${OpenDropDown ? "active" : ""}`}>
+                  <Link
+                    to="#"
+                    className="Projects"
+                    onClick={handleDropDownClick}
+                  >
+                    Projects
+                  </Link>
 
-              {OpenDropDown ? (
-                <>
-                  <div className="OverlayWrapper">
+                  <img className="Arrow" src={Arrow} alt="arrow" onClick={handleDropDownClick} />
 
-                    <div
-                      className="Overlay"
-                      ref={Overlay}
-                      onClick={handleOverlay}
-                    >
-                      
-                        <DropDown>
-                          <DropDownItem
-                            icon={Calculator}
-                            alt={"icon"}
-                            url={"/Calculator"}
-                            text={"Calculator"}
-                          />
-                          <DropDownItem text={"test"} />
-                        </DropDown>
-                    
-                    </div>
-                  </div>
-                </>
-              ) : null}
-              <div className="About" ><a href="#about">About</a></div>
-              <Link to="/Contact" className="Contact">
-                Contact
-              </Link>
+                  {OpenDropDown ? (
+                    <>
+                      <DropDown >
+
+                        <DropDownItem
+                          icon={Calculator}
+                          alt={"icon"}
+                          url={"/Calculator"}
+                          text={"Calculator"}
+                        />
+                        <DropDownItem text={"test"} />
+
+                      </DropDown>
+
+                      <div className="OverlayWrapper">
+
+                        <div
+                          className="Overlay"
+                          ref={Overlay}
+                          onClick={handleOverlay}
+                        >
+                        </div>
+
+                      </div>
+
+                    </>
+                  ) : null}
+                </div>
+
+                <div className="About" ><a href="#about">About</a></div>
+
+                <Link to="/Contact" className="Contact">
+                  Contact
+                </Link>
+
+              </div>
+
             </>
           ) : (
             <>
-
               <HiMiniBars3 className={`NavIcon ${OpenNavBar ? "active" : ""}`} size={40} onClick={handleNavClick} />
               <img className="Logo" src={Logo} alt="logo" />
               {OpenNavBar ? (<>

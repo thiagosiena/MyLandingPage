@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
+  user-select: none;
   font-family: "Sora";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -48,6 +48,11 @@
   width: 100%;
   height: 100%;
   scroll-snap-align: center;
+  user-select: none;
+}
+
+.canva {
+  pointer-events: none;
 }
 
 .pc-image {
@@ -55,6 +60,8 @@
   height: 50%;
   object-fit: contain;
   position: absolute;
+  user-select: none;
+  pointer-events: none;
   top: 0;
   bottom: 100px;
   left: 0;

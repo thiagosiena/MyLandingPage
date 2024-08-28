@@ -32,12 +32,12 @@ const HomePage = () => {
                     </div>
                     <div className="right">
                         <div className="Object-3d">
-                            <Canvas camera={{ fov: 25, position: [4.8, 4.8, 4.8] }}>
-                                <OrbitControls enableZoom={false} />
+                            <Canvas dpr={[1, 2]} camera={{ fov: 25, position: [4.8, 4.8, 4.8] } }>
+                                <OrbitControls enableZoom={false}  />
                                 <ambientLight intensity={1} />
-                                <directionalLight position={[4, 3, 2]} />
+                                <directionalLight position={[4, 3, 2]} intensity={0.6} />
                                 <mesh>
-                                    <sphereGeometry args={[1,200,300]} />
+                                    <sphereGeometry args={[1,32, 32]} />
                                     <MeshDistortMaterial color="#19C23D" distort={0.4} speed={2} />
                                 </mesh>
                             </Canvas>

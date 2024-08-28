@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
 .DropDown {
-  margin-right: calc(10% + 315px);
+  display: flex;
+  flex-direction: column;
   background-color: transparent;
   max-width: 100%;
   max-height: 100%;
   transition: 0.3s ease;
-  padding: 10px 6px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   width: 180px;
@@ -22,6 +22,7 @@
 .DropDownItem {
   display: flex;
   align-items: center;
+  gap: 3px;
   justify-content: center;
   height: 50px;
   width: max;
@@ -30,6 +31,7 @@
 }
 
 ul {
+  margin: 0;
   padding: 0;
 }
 

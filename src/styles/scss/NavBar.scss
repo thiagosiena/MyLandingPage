@@ -17,9 +17,6 @@
 .NavBar{
     padding-top: 90px;
     z-index: -1;
-    ul{
-        list-style: none;
-    }
     width: 150px;
     height: 200vh;
     position: absolute;
@@ -27,6 +24,10 @@
     top: 0px;
     background-color: black;
     animation: ShowNavBar 1s ease;
+    ul{
+        list-style: none;
+    }
+ 
     
 }
 
