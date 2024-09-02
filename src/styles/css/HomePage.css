@@ -84,4 +84,13 @@
   overflow-x: hidden;
 }
 
+.Third-section {
+  background-color: #1d1d1d;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: calc(100vh + 120px);
+  overflow-x: hidden;
+}
+
 /*# sourceMappingURL=HomePage.css.map */

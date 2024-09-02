@@ -4,8 +4,6 @@
 
 
 .First-section {
-    // background: rgb(0, 98, 21);
-    // background: linear-gradient(190deg, rgba(0, 98, 21, 1) 0%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 1) 66%, rgba(0, 98, 21, 1) 100%);
     background-color: #1d1d1d;
     padding: 0;
     border: 0;
@@ -104,6 +102,15 @@
         height: calc(100vh + 120px);
         overflow-x: hidden;
 
+    }
+
+    .Third-section {
+        background-color: #1d1d1d;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        height: calc(100vh + 120px);
+        overflow-x: hidden;
     }
 
 

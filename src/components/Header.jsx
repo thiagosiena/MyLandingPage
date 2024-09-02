@@ -77,6 +77,13 @@ const Header = () => {
               </div>
 
               <div className="Buttons-Container">
+
+                <Link to="/Contact" className="Contact">
+                  Contact
+                </Link>
+
+                <div className="About" ><a href="#about">About</a></div>
+
                 <div className={`Project ${OpenDropDown ? "active" : ""}`}>
                   <Link
                     to="#"
@@ -116,12 +123,6 @@ const Header = () => {
                     </>
                   ) : null}
                 </div>
-
-                <div className="About" ><a href="#about">About</a></div>
-
-                <Link to="/Contact" className="Contact">
-                  Contact
-                </Link>
 
               </div>
 

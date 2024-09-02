@@ -5,15 +5,17 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import pc from "../imgs/Programming-amico.png"
 import { OrbitControls, MeshDistortMaterial } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React from "react";
+import Carousel from "../components/Carousel";
+
 
 
 const HomePage = () => {
 
     const [content] = useTypewriter({
-        words: ["Thiago ", "", "a Developer", ""],
+        words: ["Thiago ", "", "a Developer", "", "a Musician"],
         loop: {},
     });
+
 
     return (
         <>
@@ -32,12 +34,12 @@ const HomePage = () => {
                     </div>
                     <div className="right">
                         <div className="Object-3d">
-                            <Canvas dpr={[1, 2]} camera={{ fov: 25, position: [4.8, 4.8, 4.8] } }>
-                                <OrbitControls enableZoom={false}  />
+                            <Canvas dpr={[1, 2]} camera={{ fov: 25, position: [4.8, 4.8, 4.8] }}>
+                                <OrbitControls enableZoom={false} />
                                 <ambientLight intensity={1} />
                                 <directionalLight position={[4, 3, 2]} intensity={0.6} />
                                 <mesh>
-                                    <sphereGeometry args={[1,32, 32]} />
+                                    <sphereGeometry args={[1, 32, 16]} />
                                     <MeshDistortMaterial color="#19C23D" distort={0.4} speed={2} />
                                 </mesh>
                             </Canvas>
@@ -48,8 +50,24 @@ const HomePage = () => {
 
 
             </div>
+
             <div className="Second-section" id="about">
-                <h1>hi</h1>
+                <div className="content">
+                <div className="left">
+                    <h1>a</h1>
+                </div>
+                <div className = "right">
+                    <Carousel></Carousel>
+                </div>
+
+                </div>
+             
+
+
+            </div>
+
+            <div className="Third-section" id="">
+                <h1>a</h1>
             </div>
 
         </>
