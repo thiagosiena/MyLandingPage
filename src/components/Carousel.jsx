@@ -4,20 +4,30 @@ const Carousel = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const carouselRef = useRef(null);
-    const items = 3;
+  
+    
+    
 
     const handlePrevClick = () => {
-        setCurrentIndex(currentIndex === 0 ? items - 1 : currentIndex - 1)
+        if(carouselRef.current){
+            const CountItems = carouselRef.current.querySelectorAll('.CarouselItem')
+            setCurrentIndex(currentIndex === 0 ? CountItems.length - 1 : currentIndex - 1)
+        }
+      
     }
     const handleNextClick = () => {
-        setCurrentIndex(currentIndex === items - 1 ? 0 : currentIndex + 1)
+        if(carouselRef.current){
+            const CountItems = carouselRef.current.querySelectorAll('.CarouselItem')
+            setCurrentIndex(currentIndex === CountItems.length - 1 ? 0 : currentIndex + 1)
+        }
+       
     }
 
     const adjustCarouselSize = () =>{
         if(carouselRef.current){
-            const width = carouselRef.current.clientWidth;
+            const Carouselwidth = carouselRef.current.clientWidth;
             const items = carouselRef.current.querySelectorAll('.CarouselItem');
-            const itemWidth = width / items;
+            const itemWidth = Carouselwidth / items;
             items.forEach(item => {
                 item.style.width = `${itemWidth}px`
             })
@@ -33,7 +43,7 @@ const Carousel = () => {
 
 
     return (
-        <div className="Carousel">
+        <div className="Carousel" >
 
             <div className="CarouselContainer" ref={carouselRef}>
 
@@ -61,6 +71,8 @@ const Carousel = () => {
                             <p></p>
                         </div>
                     </div>
+
+                    
 
                 </div>
 

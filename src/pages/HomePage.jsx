@@ -1,5 +1,5 @@
 
-import Header from "../components/Header";
+
 import "../styles/css/HomePage.css";
 import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import pc from "../imgs/Programming-amico.png"
@@ -19,7 +19,7 @@ const HomePage = () => {
 
     return (
         <>
-            <Header />
+         
             <div className="First-section">
                 <div className="content">
                     <div className="left">

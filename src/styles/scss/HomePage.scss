@@ -20,6 +20,20 @@
     justify-content: space-between;
     height: 100vh;
 
+
+}
+
+.Content-about{
+
+    margin-right: 10%;
+    margin-left: 10%;
+    gap: 150px;
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+
+
+
 }
 
 .left {
@@ -39,9 +53,13 @@
 
 .Title {
 
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin: 260px 0;
     color: $AshGray;
     font-size: 30px;
-    padding-top:  300px;
+   
     padding-left: 1;
     // margin-top: 300px;
     // margin-left: 155px;

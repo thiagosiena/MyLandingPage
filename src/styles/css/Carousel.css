@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
 .Carousel {
   position: relative;
-  width: 900px;
   max-width: 100%;
   height: 900px;
   margin: auto;
