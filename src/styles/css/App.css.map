@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"App.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/Fonts.scss","../scss/App.scss"],"names":[],"mappings":"AACQ;AAKR;EACI,aAHW;;;ACHf;EACI,aDEW","file":"App.css"}

@@ -1,30 +1,31 @@
-import React, { useState,useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { FaGuitar, FaGamepad, FaLaptop } from 'react-icons/fa';
 import "../styles/css/Carousel.css";
 const Carousel = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const carouselRef = useRef(null);
-  
-    
-    
+
+
+
 
     const handlePrevClick = () => {
-        if(carouselRef.current){
+        if (carouselRef.current) {
             const CountItems = carouselRef.current.querySelectorAll('.CarouselItem')
             setCurrentIndex(currentIndex === 0 ? CountItems.length - 1 : currentIndex - 1)
         }
-      
+
     }
     const handleNextClick = () => {
-        if(carouselRef.current){
+        if (carouselRef.current) {
             const CountItems = carouselRef.current.querySelectorAll('.CarouselItem')
             setCurrentIndex(currentIndex === CountItems.length - 1 ? 0 : currentIndex + 1)
         }
-       
+
     }
 
-    const adjustCarouselSize = () =>{
-        if(carouselRef.current){
+    const adjustCarouselSize = () => {
+        if (carouselRef.current) {
             const Carouselwidth = carouselRef.current.clientWidth;
             const items = carouselRef.current.querySelectorAll('.CarouselItem');
             const itemWidth = Carouselwidth / items;
@@ -39,7 +40,7 @@ const Carousel = () => {
         adjustCarouselSize();
         window.addEventListener('resize', adjustCarouselSize);
         return () => window.removeEventListener('resize', adjustCarouselSize);
-      }, []);
+    }, []);
 
 
     return (
@@ -54,7 +55,12 @@ const Carousel = () => {
                     <div className="CarouselItem">
                         <h1>About Me</h1>
                         <div className="LargeTextArea">
-                            <p>Hi! I'm Thiago Siena. I study Computer Engineering and I'm passionate about technology. Music is also a big part of my life, I've been playing the guitar for 10 years. I also love playing online games and i love talking about these topics.</p>
+                            <p>
+                                Hi! I'm <span className="highlight">Thiago Siena</span>. I study <span className="highlight"><FaLaptop /> Computer Engineering</span> and I'm passionate about <span className="highlight">technology</span>. Music is also a big part of my life,
+                                I've been playing the <span className="highlight">guitar <FaGuitar /></span> for 10 years. I also love playing <span className="highlight">online games <FaGamepad /></span> and I enjoy talking about these topics.
+                                Recently, I've been working in the field of <span className="highlight">programmatic media</span>, and I'm really enjoying it. It's expanding my horizons and allowing me to learn new things.
+                                Check out my <a href="https://github.com/thiagosiena"  target="_blank" rel="noreferrer" className="highlight">GitHub</a> for more!
+                            </p>
                         </div>
                     </div>
 
@@ -72,7 +78,7 @@ const Carousel = () => {
                         </div>
                     </div>
 
-                    
+
 
                 </div>
 

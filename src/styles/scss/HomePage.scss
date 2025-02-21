@@ -1,91 +1,69 @@
 @use "./Colors.scss" as *;
 @use "./Fonts.scss" as *;
+@use "./media" as me;
 
-
-
+// ============================
+// SEÇÃO 1 - INTRODUÇÃO
+// ============================
 .First-section {
     background-color: #1d1d1d;
     padding: 0;
-    border: 0;
-    height: calc(100vh + 120px);
+    min-height: 100vh;
     overflow-x: hidden;
-
 }
 
-.content {
-   
-    margin-right: 10%;
-    margin-left: 10%;
+.content1, .content2 {
+    margin: 0 10%;
     display: flex;
     justify-content: space-between;
-    height: 100vh;
-
-
+    min-height: 100vh;
 }
 
-.Content-about{
-
-    margin-right: 10%;
-    margin-left: 10%;
-    gap: 150px;
-    display: flex;
-    justify-content: space-between;
-    height: 100vh;
-
-
-
+.content2 {
+    flex-direction: row;
 }
 
-.left {
-    flex: 3;
-    width: 50%;
-    max-width: 100%;
+.Alltext {
+    margin-top: 240px;
+    font-family: $font-primary;
+    font-size: 80px;
 }
 
-.right {
-    flex: 2.6;
-    margin-top: 60px;   
-    width: 50%;
-    max-width: 100%;
-    position: relative;
-}
-
-
-.Title {
-
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    margin: 260px 0;
+.text {
     color: $AshGray;
-    font-size: 30px;
-   
-    padding-left: 1;
-    // margin-top: 300px;
-    // margin-left: 155px;
 }
 
-.Cursor {
+.left, .right {
+    margin-top: 60px;
+    max-width: 100%;
+}
+
+.left { flex: 3; }
+.right { flex: 2.6; }
+
+.Cursor, .TypeWriter {
     color: $Green;
 }
 
-.TypeWriter {
-    color: $Green;
-}
-
-.Object-3d{
-    
+.object {
     width: 100%;
     height: 100%;
-    scroll-snap-align: center;
-    user-select: none;
-    
+    position: relative;
+    align-items: center;
+    overflow: hidden;
 }
-.canva{
+
+.Object-3d {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.canva {
     pointer-events: none;
 }
+
 .pc-image {
-    
     width: 100%;
     height: 50%;
     object-fit: contain;
@@ -101,35 +79,114 @@
 }
 
 @keyframes pcanimation {
-    from{
-       
-        
-    }
-   
     to {
         transform: translateY(20px);
-        
-        
     }
 }
-    .Second-section {
-        background-color: #303030;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        height: calc(100vh + 120px);
-        overflow-x: hidden;
 
+// ============================
+// SEÇÃO 2 - IMAGEM / CONTEÚDO
+// ============================
+.Second-section {
+    background-color: #303030;
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 100%;
+    height: 90vh;
+    max-height: 900px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+// ============================
+// SEÇÃO 3 - OUTRA ÁREA
+// ============================
+.Third-section {
+    background-color: #1d1d1d;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+// ============================
+// RESPONSIVIDADE
+// ============================
+@include me.tablet {
+    .First-section, .Second-section {
+        width: 100%;
+        padding: 20px;
     }
 
-    .Third-section {
-        background-color: #1d1d1d;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        height: calc(100vh + 120px);
-        overflow-x: hidden;
+    .content1, .content2 {
+        flex-direction: column;
+        gap: 20px;
     }
 
+    .content2 {
+        flex-direction: column-reverse;
+    }
 
-    
+    .Alltext {
+        font-size: 60px;
+    }
+
+    .right, .left {
+        flex: 1;
+        width: 100%;
+    }
+
+    .object {
+        height: 600px;
+        width: 600px !important;
+    }
+
+    .image {
+        height: 75vh; /* Aumentando a altura da imagem */
+        max-height: 750px; /* Ajustando para um máximo maior */
+        margin-right: 0; /* Removendo a margem direita */
+        margin-top: -10px; /* A imagem fica mais próxima do item de cima */
+    }
+}
+
+@include me.mobile {
+    .content1, .content2 {
+        margin: 0 5%;
+    }
+
+    .Alltext {
+        font-size: 40px;
+        margin-top: 100px;
+    }
+
+    .object {
+        height: 300px;
+        width: 300px;
+    }
+
+    .image {
+        height: 70vh; /* Aumentando a altura da imagem */
+        max-height: 650px; /* Ajustando para um máximo maior */
+        margin-right: 0; /* Removendo a margem direita */
+        margin-top: -5px; /* A imagem fica mais próxima do item de cima */
+    }
+}
+
+@include me.desktop-small {
+    .image {
+        height: 85vh;
+        max-height: 850px;
+    }
+
+    .object {
+        height: 700px;
+        width: 600px !important;
+    }
+}

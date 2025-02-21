@@ -1,5 +1,9 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap");
+body {
+  font-family: "Sora", sans-serif;
+}
+
 .Header {
   width: 100%;
   box-sizing: border-box;
@@ -25,8 +29,8 @@
   position: relative;
   align-items: center;
   height: 80px;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 10%;
+  margin-right: 10%;
   padding: 20px;
   border-bottom-left-radius: 100px;
   background-color: transparent;
