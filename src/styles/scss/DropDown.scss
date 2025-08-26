@@ -94,7 +94,6 @@
   white-space: nowrap;
 }
 
-// Animações
 @keyframes dropdownFadeIn {
   from {
     opacity: 0;
@@ -106,7 +105,7 @@
   }
 }
 
-// Responsividade
+
 @include tablet {
   .DropDown {
     min-width: 200px;
@@ -153,7 +152,7 @@
   }
 }
 
-// Estados de foco para acessibilidade
+
 .DropDownItem:focus-within {
   outline: 2px solid $Green;
   outline-offset: 2px;
@@ -163,4 +162,4 @@
   outline: none;
 }
 
-// Modo reduzido de movimento
+

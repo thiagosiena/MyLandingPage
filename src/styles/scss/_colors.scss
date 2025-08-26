@@ -1,0 +1,14 @@
+
+$Black: #08090A !default;
+$LightBlack: #222823 !default;
+$Gray: #575A5E !default;
+$AshGray: #B4B8AB !default;
+$Green: #19C23D !default;
+
+:root {
+  --black: #{$Black};
+  --light-black: #{$LightBlack};
+  --gray: #{$Gray};
+  --ash-gray: #{$AshGray};
+  --green: #{$Green};
+}
