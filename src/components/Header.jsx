@@ -1,70 +1,63 @@
 import React, { useRef, useState, useEffect } from "react";
-import "../styles/css/Header.css";
+import "../styles/scss/Header.scss";
 import { Link } from "react-router-dom";
 import { DropDownItem, DropDown } from "./DropDown";
 import Logo from "../imgs/TS-removebg-preview (1).png";
-import Calculator from "../imgs/Icons/icons8-calculator-26.svg";
+import CalculatorIcon from "../imgs/Icons/icons8-calculator-26.svg";
 import Arrow from "../imgs/Icons/icons8-arrow-50.svg";
 import { NavBar, NavItem } from "./NavBar";
 import { HiMiniBars3 } from 'react-icons/hi2';
 
-
 const Header = () => {
-
-  //making it responsive
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [openDropDown, setOpenDropDown] = useState(false);
+  const [openNavBar, setOpenNavBar] = useState(false);
+
+  const overlayRef = useRef(null);
+  const overlay2Ref = useRef(null);
+
   const updateWindowDimensions = () => {
     setWindowWidth(window.innerWidth);
   };
 
-  //Scroll Header animation
-
-  const scrollheader = () => {
-    const hd = document.querySelector(".Header");
-
+  const scrollHeader = () => {
+    const header = document.querySelector(".Header");
     if (window.scrollY >= 60) {
-      hd.classList.add("Header-scrolled");
+      header.classList.add("Header-scrolled");
+    } else {
+      header.classList.remove("Header-scrolled");
     }
-    else {
-      hd.classList.remove("Header-scrolled");
-    }
-  }
+  };
 
+  const handleDropDownClick = () => {
+    setOpenDropDown(!openDropDown);
+  };
+
+  const handleOverlay = (e) => {
+    if (e.target === overlayRef.current) {
+      setOpenDropDown(false);
+    }
+  };
+
+  const handleNavClick = () => {
+    setOpenNavBar(!openNavBar);
+  };
+
+  const handleOverlay2 = (e) => {
+    if (e.target === overlay2Ref.current) {
+      setOpenNavBar(false);
+    }
+  };
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollheader);
+    window.addEventListener("scroll", scrollHeader);
     window.addEventListener("resize", updateWindowDimensions);
+
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
-      window.removeEventListener("scroll", scrollheader);
-
+      window.removeEventListener("scroll", scrollHeader);
     };
   }, []);
-
-  // DropDown Works
-  const [OpenDropDown, SetOpenDropDown] = useState(false);
-  const handleDropDownClick = () => {
-    SetOpenDropDown(!OpenDropDown);
-  };
-  const handleOverlay = (e) => {
-    if (e.target === Overlay.current) handleDropDownClick();
-
-  };
-  const Overlay = useRef(null);
-
-
-
-  //NavBar Works
-  const [OpenNavBar, SetOpenNavBar] = useState(false);
-  const handleNavClick = () => {
-    SetOpenNavBar(!OpenNavBar);
-  }
-  const handleOverlay2 = (e) => {
-    if (e.target === Overlay2.current) handleNavClick();
-
-  };
-  const Overlay2 = useRef(null);
-
 
   return (
     <>
@@ -73,87 +66,84 @@ const Header = () => {
           {windowWidth > 985 ? (
             <>
               <div className="Logo-Container">
-                <a className="Logo" href="/"><img src={Logo} alt="logo" /></a>
+                <Link className="Logo" to="/">
+                  <img src={Logo} alt="logo" />
+                </Link>
               </div>
 
               <div className="Buttons-Container">
-
                 <Link to="/Contact" className="Contact">
                   Contact
                 </Link>
 
-                <div className="About" ><a href="#about">About</a></div>
+                <Link to="#about" className="About">
+                  About
+                </Link>
 
-                <div className={`Project ${OpenDropDown ? "active" : ""}`}>
-                  <Link
-                    to="#"
-                    className="Projects"
+                <div className={`Project ${openDropDown ? "active" : ""}`}>
+                  <button
+                    className="Projects-button"
                     onClick={handleDropDownClick}
                   >
                     Projects
-                  </Link>
+                    <img className="Arrow" src={Arrow} alt="arrow" />
+                  </button>
 
-                  <img className="Arrow" src={Arrow} alt="arrow" onClick={handleDropDownClick} />
-
-                  {OpenDropDown ? (
+                  {openDropDown && (
                     <>
-                      <DropDown >
-
+                      <DropDown isOpen={openDropDown}>
                         <DropDownItem
-                          icon={Calculator}
-                          alt={"icon"}
-                          url={"/Calculator"}
-                          text={"Calculator"}
+                          icon={CalculatorIcon}
+                          alt="calculator icon"
+                          url="/Calculator"
+                          text="Calculator"
                         />
-                        <DropDownItem text={"test"} />
-
+                        <DropDownItem text="test" />
                       </DropDown>
 
-                      <div className="OverlayWrapper">
-
-                        <div
-                          className="Overlay"
-                          ref={Overlay}
-                          onClick={handleOverlay}
-                        >
-                        </div>
-
-                      </div>
-
+                      <div
+                        className="Overlay"
+                        ref={overlayRef}
+                        onClick={handleOverlay}
+                      />
                     </>
-                  ) : null}
+                  )}
                 </div>
-
               </div>
-
             </>
           ) : (
             <>
-              <HiMiniBars3 className={`NavIcon ${OpenNavBar ? "active" : ""}`} size={40} onClick={handleNavClick} />
-              <img className="Logo" src={Logo} alt="logo" />
-              {OpenNavBar ? (<>
+              <HiMiniBars3
+                className={`NavIcon ${openNavBar ? "active" : ""}`}
+                size={40}
+                onClick={handleNavClick}
+              />
 
+              <Link className="Logo" to="/">
+                <img src={Logo} alt="logo" />
+              </Link>
 
-                <div className="OverlayWrapper"
-                  ref={Overlay2}
-                  onClick={handleOverlay2}>
-                  <div className="Overlay2">
-                    <NavBar>
-                      <NavItem text='Contact' url="/Contact" >
+              {openNavBar && (
+                <>
+                  <div
+                    className="Overlay-mobile"
+                    ref={overlay2Ref}
+                    onClick={handleOverlay2}
+                  />
 
-                      </NavItem>
-                      <NavItem text='test' />
-                      <NavItem text='test' />
-                    </NavBar>
-
-                  </div>
-                </div>
-
-
-              </>
-              ) : null}
-
-
+                  <NavBar isOpen={openNavBar}>
+                    <NavItem text="Contact" url="/Contact" onClick={handleNavClick} />
+                    <NavItem text="About" url="#about" onClick={handleNavClick} />
+                    <NavItem
+                      text="Projects"
+                      onClick={() => {
+                        handleNavClick();
+                        handleDropDownClick();
+                      }}
+                    />
+                  </NavBar>
+                </>
+              )}
             </>
           )}
         </div>

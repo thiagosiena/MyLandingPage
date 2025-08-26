@@ -1,4 +1,5 @@
-@use "./Fonts.scss" as *;
+@use "./globals" as *;
+
 body{
     font-family: $font-primary;
 }

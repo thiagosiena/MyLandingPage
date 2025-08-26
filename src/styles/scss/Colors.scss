@@ -1,16 +1,14 @@
-$Black: #08090A;
-$LightBlack: #222823;
-$Gray: #575A5E;
-$AshGray: #B4B8AB;
-$Green: #19C23D;
 
+$Black: #08090A !default;
+$LightBlack: #222823 !default;
+$Gray: #575A5E !default;
+$AshGray: #B4B8AB !default;
+$Green: #19C23D !default;
 
-@mixin Full-Screen($Color: transparent) {
-    position: fixed;
-    width: 100vw !important;
-    height: 100vh !important;
-    top: 0;
-    left: 0;
-    background-color: $Color;  
+:root {
+  --black: #{$Black};
+  --light-black: #{$LightBlack};
+  --gray: #{$Gray};
+  --ash-gray: #{$AshGray};
+  --green: #{$Green};
 }
-

@@ -1,0 +1,20 @@
+// _mixins.scss
+@mixin Full-Screen($Color: transparent) {
+  position: fixed;
+  width: 100vw !important;
+  height: 100vh !important;
+  top: 0;
+  left: 0;
+  background-color: $Color;  
+}
+
+// Media queries
+$mobile: 576px !default;
+$tablet: 768px !default;
+$desktop: 1024px !default;
+$desktop-small: 1366px !default;
+
+@mixin mobile { @media (max-width: $mobile) { @content; } }
+@mixin tablet { @media (max-width: $tablet) { @content; } }
+@mixin desktop { @media (max-width: $desktop) { @content; } }
+@mixin desktop-small { @media (max-width: $desktop-small) { @content; } }

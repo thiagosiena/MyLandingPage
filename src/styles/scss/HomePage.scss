@@ -1,192 +1,318 @@
-@use "./Colors.scss" as *;
-@use "./Fonts.scss" as *;
-@use "./media" as me;
+@use "./globals" as *;
 
-// ============================
-// SEÇÃO 1 - INTRODUÇÃO
-// ============================
+/* ============ RESET E ESTILOS GERAIS ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  scroll-behavior: smooth;
+  background-color: $Black;
+  color: $AshGray;
+  font-family: $font-primary;
+  line-height: 1.6;
+}
+
+/* ============ SEÇÃO 1 - HERO ============ */
 .First-section {
-    background-color: #1d1d1d;
-    padding: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
+  background-color: $Black;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.content1, .content2 {
-    margin: 0 10%;
-    display: flex;
-    justify-content: space-between;
-    min-height: 100vh;
+.content1 {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  
+  @include tablet {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
 }
 
-.content2 {
-    flex-direction: row;
-}
-
-.Alltext {
-    margin-top: 240px;
+.left {
+  flex: 1;
+  
+  .Alltext {
     font-family: $font-primary;
-    font-size: 80px;
-}
+  }
 
-.text {
+  .text {
+    font-size: clamp(3.5rem, 4vw, 2.5rem);
     color: $AshGray;
-}
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 300;
+  }
 
-.left, .right {
-    margin-top: 60px;
-    max-width: 100%;
-}
-
-.left { flex: 3; }
-.right { flex: 2.6; }
-
-.Cursor, .TypeWriter {
+  .TypeWriter {
+    font-size: clamp(2.5rem, 8vw, 5rem);
     color: $Green;
+    font-weight: 700;
+    display: block;
+    min-height: 1.2em;
+    margin-bottom: 0.5rem;
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .Cursor {
+    color: $Green;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    animation: blink 1s infinite;
+  }
+}
+
+.right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .object {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    align-items: center;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @include desktop {
+    height: 450px;
+  }
+  
+  @include tablet {
+    height: 400px;
+    max-width: 500px;
+  }
+  
+  @include mobile {
+    height: 300px;
+    max-width: 400px;
+  }
 }
 
 .Object-3d {
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -38%) !important;
+  z-index: 2;
+  filter: drop-shadow(0 0 20px rgba($Green, 0.5));
+  
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50%;
+    animation: pulsate 3s ease-in-out infinite;
+  }
 }
 
-.canva {
-    pointer-events: none;
+@keyframes pulsate {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba($Green, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba($Green, 0.8));
+  }
 }
+
+.Object-3d::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 130%;
+  background: radial-gradient(circle, rgba($Green, 0.1) 0%, transparent 70%);
+  z-index: -1;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
 
 .pc-image {
-    width: 100%;
-    height: 50%;
-    object-fit: contain;
-    position: absolute;
-    user-select: none;
-    pointer-events: none;
-    top: 0;
-    bottom: 100px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    animation: pcanimation 2s infinite ease alternate;
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  position: relative;
+  z-index: 3;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+  
+  @include mobile {
+    width: 85%;
+  }
 }
 
-@keyframes pcanimation {
-    to {
-        transform: translateY(20px);
-    }
-}
-
-// ============================
-// SEÇÃO 2 - IMAGEM / CONTEÚDO
-// ============================
+/* ============ SEÇÃO 2 - SOBRE ============ */
 .Second-section {
-    background-color: #303030;
-    width: 100vw;
-    max-width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: $LightBlack;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  
+  @include mobile {
+    padding: 2rem 1rem;
+  }
 }
 
-.image {
+.content2 {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  
+  @include tablet {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .image {
     width: 100%;
-    height: 90vh;
-    max-height: 900px;
-    object-fit: cover;
+    max-width: 950px;
+    height: auto;
     border-radius: 20px;
-    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
 }
 
-// ============================
-// SEÇÃO 3 - OUTRA ÁREA
-// ============================
+/* ============ SEÇÃO 3 ============ */
 .Third-section {
-    background-color: #1d1d1d;
-    height: 100vh;
-    overflow-x: hidden;
+  background-color: $Black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  
+  @include mobile {
+    padding: 2rem 1rem;
+  }
 }
 
-// ============================
-// RESPONSIVIDADE
-// ============================
-@include me.tablet {
-    .First-section, .Second-section {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .content1, .content2 {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .content2 {
-        flex-direction: column-reverse;
-    }
-
-    .Alltext {
-        font-size: 60px;
-    }
-
-    .right, .left {
-        flex: 1;
-        width: 100%;
-    }
-
-    .object {
-        height: 600px;
-        width: 600px !important;
-    }
-
-    .image {
-        height: 75vh; /* Aumentando a altura da imagem */
-        max-height: 750px; /* Ajustando para um máximo maior */
-        margin-right: 0; /* Removendo a margem direita */
-        margin-top: -10px; /* A imagem fica mais próxima do item de cima */
-    }
+.content-container {
+  text-align: center;
+  
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: $Green;
+  }
 }
 
-@include me.mobile {
-    .content1, .content2 {
-        margin: 0 5%;
-    }
-
-    .Alltext {
-        font-size: 40px;
-        margin-top: 100px;
-    }
-
-    .object {
-        height: 300px;
-        width: 300px;
-    }
-
-    .image {
-        height: 70vh; /* Aumentando a altura da imagem */
-        max-height: 650px; /* Ajustando para um máximo maior */
-        margin-right: 0; /* Removendo a margem direita */
-        margin-top: -5px; /* A imagem fica mais próxima do item de cima */
-    }
+/* ============ ANIMAÇÕES ============ */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(-10px) rotate(1deg); 
+  }
+  66% { 
+    transform: translateY(5px) rotate(-1deg); 
+  }
 }
 
-@include me.desktop-small {
-    .image {
-        height: 85vh;
-        max-height: 850px;
-    }
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba($Green, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba($Green, 0.7), 0 0 30px rgba($Green, 0.4);
+  }
+}
 
-    .object {
-        height: 700px;
-        width: 600px !important;
-    }
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ============ RESPONSIVIDADE ============ */
+@include mobile {
+  .First-section, .Second-section, .Third-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .content1, .content2 {
+    gap: 2rem;
+  }
+  
+  .object {
+    height: 350px;
+  }
+  
+  .left .text {
+    font-size: 1.9rem;
+  }
+  
+  .left .TypeWriter {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .left .text {
+    font-size: 1.1rem;
+  }
+  
+  .left .TypeWriter {
+    font-size: 1.8rem;
+  }
+  
+  .object {
+    height: 220px;
+  }
+}
+
+/* ============ ACESSIBILIDADE ============ */
+@media (prefers-reduced-motion: reduce) {
+  .pc-image, .TypeWriter, .Cursor {
+    animation: none;
+  }
 }

@@ -1,121 +1,295 @@
-@use "./Colors.scss" as *;
-@use "./Fonts.scss" as *;
-@use "./media" as me; // Importando media queries
+@use "sass:color";
+@use "./globals" as *;
 
-.Carousel {
-    position: relative;
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($Green, 0.1);
+  
+  @include mobile {
+    border-radius: 10px;
+    touch-action: pan-y;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  
+  @include mobile {
+    overflow: visible;
+  }
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  
+  @include mobile {
+    transition: none;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+  }
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  padding: 2.5rem;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  
+  @include tablet {
+    padding: 2rem;
+    min-height: 300px;
+  }
+  
+  @include mobile {
+    padding: 1.5rem;
+    min-height: 250px;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+.carousel-item h1 {
+  color: $Green;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  
+  @include mobile {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+  }
+}
+
+.large-text-area {
+  color: $AshGray;
+  line-height: 1.7;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+  margin: 0 auto;
+  
+  p {
+    margin-bottom: 1rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  @include mobile {
+    line-height: 1.6;
+    font-size: 0.95rem;
     max-width: 100%;
-    height: 900px;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-
-    @include me.tablet {
-        height: 700px;
-    }
-
-    @include me.mobile {
-        height: 500px;
-    }
+  }
 }
-
-.CarouselContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.CarouselTrack {
-    display: flex;
-    flex-direction: row;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-}
-
-.CarouselItem {
-    flex: 1 0 100%;
-    height: 600px;
-    box-sizing: border-box;
-    padding: 40px;
-    text-align: center;
-    background-color: #1d1d1d;
-    color: $AshGray;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-    @include me.tablet {
-        height: 500px;
-        padding: 30px;
-    }
-
-    @include me.mobile {
-        height: 400px;
-        padding: 20px;
-    }
-}
-
-.CarouselButton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.335);
-    border: none;
-    color: white;
-    font-size: 54px;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1;
-
-    @include me.tablet {
-        font-size: 40px;
-        padding: 8px;
-    }
-
-    @include me.mobile {
-        font-size: 30px;
-        padding: 6px;
-    }
-}
-
-.LargeTextArea {
-    margin-top: 80px;
-    padding: 20px;
-    font-size: 24px;
-    background-color: #2b2b2b;
-    color: $AshGray;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    line-height: 1.5;
-    height: 260px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #19C23D #1d1d1d;
-
-    @include me.tablet {
-        font-size: 20px;
-        padding: 15px;
-        height: 220px;
-    }
-
-    @include me.mobile {
-        font-size: 16px;
-        padding: 10px;
-        height: 180px;
-    }
-}
-
 
 .highlight {
-    font-weight: bold;
-    color: #19C23D;
+  color: $Green;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  
+  svg {
+    font-size: 0.9em;
+  }
 }
 
-.prev {
-    left: 1px;
+.highlight a {
+  color: $Green;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: color.adjust($Green, $lightness: 15%);
+    text-decoration: underline;
+  }
 }
 
-.next {
-    right: 1px;
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba($Green, 0.3);
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  &.prev {
+    left: 10px;
+  }
+  
+  &.next {
+    right: 10px;
+  }
+  
+  @include mobile {
+    display: none;
+  }
+  
+  @include tablet {
+    width: 45px;
+    height: 45px;
+    font-size: 1.6rem;
+    
+    // Ajustes adicionais para tablet
+    &.prev {
+      left: 8px;
+    }
+    
+    &.next {
+      right: 8px;
+    }
+  }
+  
+  &:hover {
+    background: color.adjust(rgba($Green, 0.6), $alpha: 0.1);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+  
+  @include mobile {
+    
+    .carousel-indicator{
+      display: none;
+    }
+  }
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba($AshGray, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &.active {
+    background: $Green;
+    transform: scale(1.2);
+  }
+  
+  @include mobile {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.carousel-item {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .carousel {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba($Green, 0.2);
+  }
+}
+
+@media (max-width: 350px) {
+  .carousel-item {
+    padding: 1.2rem;
+    min-height: 220px;
+  }
+  
+  .carousel-item h1 {
+    font-size: 1.4rem;
+  }
+  
+  .large-text-area {
+    font-size: 0.9rem;
+  }
+}
+
+.carousel-button:focus {
+  outline: 2px solid $Green;
+  outline-offset: 2px;
+}
+
+.carousel-indicator:focus {
+  outline: 2px solid $Green;
+  outline-offset: 2px;
+}
+
+.carousel-track {
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    transition: none;
+  }
+  
+  .carousel-item {
+    animation: none;
+  }
+}
+
+.large-text-area {
+  padding: 0 2rem;
+  
+  @include tablet {
+    padding: 0 1.5rem;
+  }
+  
+  @include mobile {
+    padding: 0 1rem;
+  }
 }

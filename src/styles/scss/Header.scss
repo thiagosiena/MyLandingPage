@@ -1,220 +1,239 @@
-@use "./Colors.scss" as *;
-@use "./Fonts.scss" as *;
+@use "./globals" as *;
 
 .Header {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    background-color: transparent;
-    border-bottom-right-radius: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: all 0.5s;
-    z-index: 100;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  z-index: 1000;
 
-}
-
-.Header-scrolled {
-    background-color: #101010;
+  &.Header-scrolled {
+    background: rgba($LightBlack, 0.95);
+    backdrop-filter: blur(10px);
+  }
 }
 
 .Content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    align-items: center;
-    height: 80px;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding: 20px;
-    border-bottom-left-radius: 100px;
-    background-color: transparent;
-    border-bottom-right-radius: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  max-width: 1400px;
 }
 
-.Buttons-Container{
-
-    display: flex;
-    flex-direction: row;
-    gap: 90px;
-
+.Logo-Container {
+  display: flex;
+  align-items: center;
 }
 
-.Contact {
-
-    font-size: 30px;
-    color: $AshGray;
-    text-decoration: none;
-
+.Logo {
+  display: flex;
+  align-items: center;
+  
+  img {
+    height: 200px; /* Logo maior mas proporcional */
+    width: auto;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }
 
-.Contact::after {
-    content: "";
-    background-color: $Green;
-    width: 0px;
-    height: 3px;
-    max-height: 3px;
-    display: block;
-    margin: auto;
-    transition: 0.3s;
+.Buttons-Container {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
 }
 
-.Contact:hover {
+/* HOVER ORIGINAL MANTIDO */
+.Contact, .About {
+  color: $AshGray;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $Green;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover {
     color: $Green;
-}
-
-.Contact:hover::after {
-
-    width: 100%;
-}
-
-.About {
-
-    a {
-        text-decoration: none;
-        font-size: 30px;
-        color: $AshGray;
-
+    
+    &::before {
+      width: 100%;
     }
-
-
+  }
 }
 
-.About::after {
-    font-size: 30px;
-    content: "";
-    background-color: $Green;
-    width: 0px;
-    height: 3px;
-    display: block;
-    margin: auto;
-    transition: 0.3s;
-}
-
-.About:hover {
-    a{
-        color: $Green;
+.Project {
+  position: relative;
+  
+  &.active {
+    .Arrow {
+      transform: rotate(90deg); /* Flecha para baixo quando ativo */
     }
+  }
+}
+
+.Projects-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: $AshGray;
+  background: transparent;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  
+  /* HOVER ORIGINAL MANTIDO */
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $Green;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover {
+    color: $Green;
+    .Arrow{
+        transform: rotate(90deg);
+    }
+    
+    &::before {
+      width: 100%;
+    }
+    
+  
+  }
+}
+
+.Arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease, filter 0.3s ease;
    
 }
 
-.About:hover::after {
-    width: 100%;
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 998;
+  cursor: default;
 }
-
-.DropDown,.DropDown-scrolled{
-
-    position: absolute;
-    top: 100%; /* Posiciona o dropdown logo abaixo do item "Projects" */
-    background-color: #101010; /* Cor de fundo do dropdown */
-    width: fit-content;
-    height: fit-content;
-    transition: 0.3s ease;
-    padding: 10px 6px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 100; /* Garante que o dropdown está acima do overlay */
-
-}
-.OverlayWrapper {
-
-    @include Full-Screen();
-
-    .Overlay {
-
-        display: flex;
-        justify-content: flex-end;
-        padding-top: 90px;
-        width: 100vw !important;
-        height: 100vh !important;
-        background-color: transparent;
-        position: fixed;
-        z-index: 99;
-    }
-
-}
-
 
 .NavIcon {
-    transition: 0.5s;
-    margin: 25px;
-    padding: 0px;
-    margin-right: auto;
-    color: azure;
-    display: flex;
-    justify-content: flex-end;
-    z-index: 101;
-
-
-    &.active {
-        transform: rotate(90deg);
-
-    }
-
-
-}
-
-.Project{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: fit-content;
-    cursor: pointer;
-    .Arrow{
-        margin: auto;
-        width: 30px;
-        height: 25px;
-        transform: translateX(6px);
-        transition: 0.3s;
-      
-    }
-    &:hover{
-        .Projects::after {
-            width: 100%;
-        }
-
-    }
-    &:hover,
-    &.active {
-
-        .Projects{
-            color: $Green;
-            transform: scale(0.98);
-
-        }
-        .Arrow{
-            transform: translateX(6px) rotate(90deg);
-        }
-    }
+  cursor: pointer;
+  color: $AshGray;
+  transition: color 0.3s ease;
+  z-index: 1001;
   
+  &:hover {
+    color: $Green;
+  }
+  
+  &.active {
+    color: $Green;
+  }
 }
 
-.Projects {
+.Overlay-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+}
 
- 
-    font-size: 30px;
-    position: relative;
-    justify-content: center;
-    text-decoration: none;
-    color: $AshGray;
-    
+.NavBar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: rgba($LightBlack, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  padding: 2rem;
+  padding-top: 90px;
+  
+  &.open {
+    transform: translateX(0);
+  }
 }
 
 
-.Projects::after {
-    font-size: 30px;
-    content: "";
-    background-color: $Green;
-    width: 0px;
-    height: 3px;
-    display: block;
-    margin: auto;
-    transition: 0.3s;
+@include tablet {
+  .Content {
+    padding: 0 1.5rem;
+  }
+  
+  .Buttons-Container {
+    gap: 2rem;
+  }
+  
+  .Logo {
+    img {
+      height: 55px;
+    }
+  }
+}
+
+@include mobile {
+  .Content {
+    padding: 0 1rem;
+  }
+  
+  .Logo {
+    img {
+      height: 150px;
+    }
+  }
+  
+  .NavBar-container {
+    width: 250px;
+    padding: 1.5rem;
+    padding-top: 80px;
+  }
 }
 
 
-
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid $Green;
+  outline-offset: 2px;
+}
 

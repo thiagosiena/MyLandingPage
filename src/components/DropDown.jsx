@@ -1,56 +1,63 @@
+import React, { useCallback, useEffect } from "react";
+
 import { Link } from "react-router-dom"
-import "../styles/css/DropDown.css"
-import { useEffect } from "react"
+import "../styles/scss/DropDown.scss"
 
-function DropDown({ children }) {
-
-    const scrollDropDown = () =>{
-   
-        const Dp = document.querySelector(".DropDown")
-        if(window.scrollY >= 60){
-          Dp.classList.add("DropDown-scrolled");
-          
-        }
-        else{
-          Dp.classList.remove("DropDown-scrolled");
-        }
+function DropDown({ children, isOpen }) {
+  const scrollDropDown = useCallback(() => {
+    const dropdown = document.querySelector(".DropDown")
+    if (dropdown) {
+      if (window.scrollY >= 60) {
+        dropdown.classList.add("DropDown-scrolled")
+      } else {
+        dropdown.classList.remove("DropDown-scrolled")
       }
-      useEffect(()=>{
-        window.addEventListener("click", scrollDropDown)
-        window.addEventListener("scroll", scrollDropDown);
-        return () =>{
-        window.removeEventListener("click", scrollDropDown)
-        window.removeEventListener("scroll", scrollDropDown);
-        }
-      })
-    return (
-        <div className="DropDown">
-            <ul>
-                {children.map((DropDownItens, index) => (<li key={index}>{DropDownItens}</li>))}
-            </ul>
-        </div>
-    ) 
+    }
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollDropDown)
+    return () => {
+      window.removeEventListener("scroll", scrollDropDown)
+    }
+  }, [scrollDropDown])
+
+  if (!isOpen) return null
+
+  return (
+    <div className="DropDown">
+      <ul className="DropDown-list">
+        {React.Children.map(children, (child, index) => (
+          <li key={index} className="DropDown-item">
+            {child}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
+function DropDownItem({ icon, alt, url, text }) {
+  const content = (
+    <>
+      {icon && <img className="DropDown-icon" src={icon} alt={alt || `${text} icon`} />}
+      <span className="DropDown-text">{text}</span>
+    </>
+  )
 
-
-function DropDownItem(props) {
-
-    if (props.url == null) {
-        return (
-            <div className="DropDownItem">
-                <img className="Icons" src={props.icon} alt={props.alt} />
-                <h4 className="Text">{props.text}</h4>
-            </div >
-        )
-    }
-
-    return (
-        <div className="DropDownItem">
-            <img className="Icons" src={props.icon} alt={props.alt} />
-            <Link className="Button" to={props.url}>{props.text}</Link>
+  return (
+    <div className="DropDownItem">
+      {url ? (
+        <Link to={url} className="DropDown-link">
+          {content}
+        </Link>
+      ) : (
+        <div className="DropDown-content">
+          {content}
         </div>
-    )
+      )}
+    </div>
+  )
 }
 
 export { DropDown, DropDownItem }

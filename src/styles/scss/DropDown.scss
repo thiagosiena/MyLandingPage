@@ -1,51 +1,166 @@
-@use "./Colors.scss" as *;
-@use "./Fonts.scss" as *;
+@use "./globals" as *;
 
 .DropDown {
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-    max-width: 100%;
-    max-height: 100%;
-    transition: 0.3s ease;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    width: 180px;
-    height: fit-content;
-    li{
-        list-style: none;
-    }
- 
-}
-.DropDown-scrolled{
-    background-color: #101010;
-
-}
-.DropDownItem{
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    justify-content: center;
-    height: 50px;
-    width: max;
-    margin-top: 5px;
-    border: 2px solid $Green;
-}
-ul{
-    margin: 0;
-    padding: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba($LightBlack, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  padding: 0.5rem;
+  min-width: 220px; /* Largura aumentada */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba($Green, 0.2);
+  z-index: 1000;
+  animation: dropdownFadeIn 0.3s ease;
+  transform-origin: top right;
+  margin-top: 10px;
 }
 
-.Icons{
-    max-width: 20px;
+.DropDown-scrolled {
+  background: rgba($Black, 0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
-.Button{
-    text-decoration: none;
-    font-size: 20px;
-    color: $Green;
+
+.DropDown-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.Text{
-    font-size: 20px;
-    color: $Green;
-    
+
+.DropDown-item {
+  margin: 0;
+  padding: 0;
+  
+  &:not(:last-child) {
+    margin-bottom: 0.5rem; /* Espaçamento aumentado */
+  }
 }
+
+.DropDownItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.2rem; /* Padding aumentado */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: 2px solid transparent;
+  
+  &:hover {
+    background: rgba($Green, 0.1);
+    border-color: rgba($Green, 0.3);
+    transform: translateX(4px);
+  }
+  
+  &:active {
+    transform: translateX(2px) scale(0.98);
+  }
+}
+
+.DropDown-link,
+.DropDown-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espaçamento aumentado */
+  width: 100%;
+  text-decoration: none;
+  color: $AshGray;
+  transition: color 0.3s ease;
+  font-size: 1.1rem; /* Fonte aumentada para combinar com Header */
+  font-weight: 500;
+}
+
+.DropDown-link:hover {
+  color: $Green;
+  text-decoration: none;
+}
+
+.DropDown-icon {
+  width: 24px; /* Ícone maior */
+  height: 24px;
+  object-fit: contain;
+  filter: invert(0.6) sepia(1) saturate(5) hue-rotate(80deg); /* VERDE desde o início */
+  transition: filter 0.3s ease;
+}
+
+.DropDownItem:hover .DropDown-icon {
+  filter: invert(0.6) sepia(1) saturate(8) hue-rotate(80deg); /* Verde mais intenso no hover */
+}
+
+.DropDown-text {
+  font-size: 1.1rem; /* Fonte aumentada */
+  font-weight: 500;
+  color: inherit;
+  white-space: nowrap;
+}
+
+// Animações
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Responsividade
+@include tablet {
+  .DropDown {
+    min-width: 200px;
+    padding: 0.5rem;
+  }
+  
+  .DropDownItem {
+    padding: 0.9rem 1rem;
+  }
+  
+  .DropDown-text {
+    font-size: 1rem;
+  }
+  
+  .DropDown-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@include mobile {
+  .DropDown {
+    min-width: 180px;
+    right: -0.5rem;
+  }
+  
+  .DropDownItem {
+    padding: 0.8rem 0.9rem;
+  }
+  
+  .DropDown-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .DropDown-text {
+    font-size: 0.95rem;
+  }
+  
+  .DropDown-link,
+  .DropDown-content {
+    gap: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+// Estados de foco para acessibilidade
+.DropDownItem:focus-within {
+  outline: 2px solid $Green;
+  outline-offset: 2px;
+}
+
+.DropDown-link:focus {
+  outline: none;
+}
+
+// Modo reduzido de movimento
